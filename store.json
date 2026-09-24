@@ -1,0 +1,17 @@
+{
+  "settings": {
+    "name": "MXSN Nexus",
+    "tag": "متجر المنتجات الرقمية",
+    "description": "منتجات رقمية مفيدة للشباب والطلاب وأصحاب الأعمال.",
+    "currency": "USD",
+    "maintenance": false,
+    "maintenanceMessage": "المتجر قيد الصيانة مؤقتًا.",
+    "paymentProvider": "Sham Cash",
+    "paymentAccount": "",
+    "paymentInstructions": "حوّل قيمة المنتج إلى وسيلة الدفع الموضحة ثم أدخل رقم/معرّف التحويل."
+  },
+  "products": [
+    {"id":"p1","name":"صناعة العقل في عالم المستقبل","description":"كتاب رقمي عملي عن التفكير والتعلم والذكاء الاصطناعي.","price":5,"currency":"USD","imageUrl":"","active":true,"fileName":""}
+  ],
+  "orders": []
+}
