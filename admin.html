@@ -1,1 +1,126 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#22d3ee"><link rel="stylesheet" href="style.css"><title>MXSN Nexus — الإدارة</title></head><body><header><div class="brand"><b>MX</b><div><h1>MXSN Nexus</h1><p>لوحة الإدارة</p></div></div><a href="/" class="secondary">عرض المتجر</a></header><main class="admin"><section id="loginBox" class="panel login"><h2>دخول الإدارة</h2><input id="adminPass="930675281Mb" type="password" placeholder="كلمة المرور"><button class="primary full" onclick="login()">دخول</button><div id="loginMsg" class="msg"></div></section><div id="dashboard" class="hidden"><div class="admin-grid"><section class="panel"><h3>حالة المتجر</h3><div class="status"><b id="maintenanceState">المتجر مفتوح</b><button class="secondary" onclick="toggleMaintenance()">تبديل الصيانة</button></div><label>رسالة الصيانة</label><textarea id="maintenanceMessage"></textarea></section><section class="panel"><h3>إعدادات المتجر</h3><label>اسم المتجر</label><input id="sName"><label>الوصف</label><textarea id="sDesc"></textarea><label>النص المختصر</label><input id="sTag"><label>العملة</label><input id="currency"><label>وسيلة الدفع</label><input id="paymentProvider"><label>حساب/رقم الدفع</label><input id="paymentAccount"><label>تعليمات الدفع</label><textarea id="paymentInstructions"></textarea><button class="secondary" onclick="saveSettings()">حفظ الإعدادات</button></section></div><section class="panel"><div class="section-head"><h2>الطلبات <span id="newBadge"></span></h2><button class="secondary" onclick="loadDashboard()">تحديث</button></div><div id="orders"></div></section><section class="panel"><div class="section-head"><h2>المنتجات</h2><button class="primary" onclick="newProduct()">+ إضافة منتج</button></div><div id="productsAdmin"></div></section><section id="editor" class="panel hidden"><h2 id="editorTitle">إضافة منتج</h2><input id="pId" type="hidden"><label>اسم المنتج</label><input id="pName"><label>السعر</label><input id="pPrice" type="number" min="0" step="0.01"><label>العملة</label><input id="pCurrency"><label>رابط الصورة</label><input id="pImage"><label>وصف المنتج</label><textarea id="pDesc"></textarea><label>ملف المنتج PDF/ZIP/…</label><input id="pFile" type="file"><div class="actions"><button class="primary" onclick="saveProduct()">حفظ المنتج</button><button class="secondary" onclick="closeEditor()">إلغاء</button></div><div id="editorMsg" class="msg"></div></section></div></main><script src="admin.js"></script></body></html>
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#22d3ee">
+<link rel="stylesheet" href="style.css">
+<title>MXSN Nexus — الإدارة</title>
+</head>
+
+<body>
+<header>
+  <div class="brand">
+    <b>MX</b>
+    <div>
+      <h1>MXSN Nexus</h1>
+      <p>لوحة الإدارة</p>
+    </div>
+  </div>
+  <a href="/" class="secondary">عرض المتجر</a>
+</header>
+
+<main class="admin">
+
+<section id="loginBox" class="panel login">
+  <h2>دخول الإدارة</h2>
+  <input id="adminPass" type="password" placeholder="كلمة المرور">
+  <button class="primary full" onclick="login()">دخول</button>
+  <div id="loginMsg" class="msg"></div>
+</section>
+
+<div id="dashboard" class="hidden">
+
+<div class="admin-grid">
+
+<section class="panel">
+  <h3>حالة المتجر</h3>
+  <div class="status">
+    <b id="maintenanceState">المتجر مفتوح</b>
+    <button class="secondary" onclick="toggleMaintenance()">تبديل الصيانة</button>
+  </div>
+  <label>رسالة الصيانة</label>
+  <textarea id="maintenanceMessage"></textarea>
+</section>
+
+<section class="panel">
+  <h3>إعدادات المتجر</h3>
+  <label>اسم المتجر</label>
+  <input id="sName">
+
+  <label>الوصف</label>
+  <textarea id="sDesc"></textarea>
+
+  <label>النص المختصر</label>
+  <input id="sTag">
+
+  <label>العملة</label>
+  <input id="currency">
+
+  <label>وسيلة الدفع</label>
+  <input id="paymentProvider">
+
+  <label>حساب/رقم الدفع</label>
+  <input id="paymentAccount">
+
+  <label>تعليمات الدفع</label>
+  <textarea id="paymentInstructions"></textarea>
+
+  <button class="secondary" onclick="saveSettings()">حفظ الإعدادات</button>
+</section>
+
+</div>
+
+<section class="panel">
+  <div class="section-head">
+    <h2>الطلبات <span id="newBadge"></span></h2>
+    <button class="secondary" onclick="loadDashboard()">تحديث</button>
+  </div>
+  <div id="orders"></div>
+</section>
+
+<section class="panel">
+  <div class="section-head">
+    <h2>المنتجات</h2>
+    <button class="primary" onclick="newProduct()">+ إضافة منتج</button>
+  </div>
+  <div id="productsAdmin"></div>
+</section>
+
+<section id="editor" class="panel hidden">
+  <h2 id="editorTitle">إضافة منتج</h2>
+
+  <input id="pId" type="hidden">
+
+  <label>اسم المنتج</label>
+  <input id="pName">
+
+  <label>السعر</label>
+  <input id="pPrice" type="number" min="0" step="0.01">
+
+  <label>العملة</label>
+  <input id="pCurrency">
+
+  <label>رابط الصورة</label>
+  <input id="pImage">
+
+  <label>وصف المنتج</label>
+  <textarea id="pDesc"></textarea>
+
+  <label>ملف المنتج PDF/ZIP/…</label>
+  <input id="pFile" type="file">
+
+  <div class="actions">
+    <button class="primary" onclick="saveProduct()">حفظ المنتج</button>
+    <button class="secondary" onclick="closeEditor()">إلغاء</button>
+  </div>
+
+  <div id="editorMsg" class="msg"></div>
+</section>
+
+</div>
+</main>
+
+<script src="admin.js"></script>
+</body>
+</html>
